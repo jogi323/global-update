@@ -1,0 +1,56 @@
+<div class="container trans-wave">
+    <div class="col-md-6 offset-md-3">
+      <div class="inner-form">
+        <h3>delivery_type</h3>
+        <form [formGroup]="deliveryForm" class="form-horizontal">
+          <div class="form-group row" [ngClass]="{'has-error': (!dc.valid && dc.touched)}">
+            <label for="DC" class="col-sm-4 control-label">Enter DC</label>
+            <div class="col-sm-6">
+              <input [formControl]="dc" type="text" class="form-control" id="DC" placeholder="Enter DC...">
+              <div *ngIf="dc.hasError('required') && dc.touched" class="error">You must include a DC.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!warehouse.valid && warehouse.touched)}">
+            <label for="warehouse" class="col-sm-4 control-label">Enter Warehouse</label>
+            <div class="col-sm-6">
+              <input [formControl]="warehouse" type="text" class="form-control" id="warehouse" placeholder="Enter warehouse...">
+              <div *ngIf="warehouse.hasError('required') && warehouse.touched" class="error">You must include a warehouse.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!delivery_type.valid && delivery_type.touched)}">
+            <label for="inputPassword3" class="col-sm-4 control-label">Enter New delivery_type for CC/Whse</label>
+  
+            <div class="col-sm-6">
+              <select [formControl]="delivery_type" class="form-control" id="deliveryId">
+                <option>Select a value</option>
+                <option *ngFor="let id of validDeliveryTypeId">
+                  {{id}}
+                </option>
+              </select>
+              <div *ngIf="delivery_type.hasError('required') && delivery_type.touched" class="error">You must include a delivery type.</div>
+            </div>
+          </div>
+          <div class="form-group row update-button">
+            <div class="offset-sm-2 col-sm-10">
+              <button [disabled]="!deliveryForm.valid" type="submit" class="btn btn-default btn-auth" data-toggle="modal" data-target="#myModal">Update</button>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <p class="text-center">Are you sure to update?</p>
+                  <div class="buttons text-center">
+                      <button type="button" class="btn btn-default" (click)="onSubmit(deliveryForm.value);deliveryForm.reset();" data-dismiss="modal" >Yes</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

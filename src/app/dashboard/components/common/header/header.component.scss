@@ -1,0 +1,19 @@
+.navbar {
+    background: #72d6f5 !important;
+    .navbar-brand {
+        color: #fff;
+    }
+    .collapse {
+        .navbar-nav {
+            .nav-item {
+                .nav-link {
+                    color: rgba(255,255,255,0.75);
+                    cursor: pointer;
+                }
+                .nav-link:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

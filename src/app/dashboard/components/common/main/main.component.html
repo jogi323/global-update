@@ -1,0 +1,86 @@
+<!-- <div class="container">
+  <div class="nav-side-menu">
+    <ul class="nav flex-column">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">GLOBAL UPDATE</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="globalupdate/transwave">TRANS_WAVE_ID</a>
+          <a class="dropdown-item" routerLink="globalupdate/deliverytype">DELIVERY_TYPE</a>
+          <a class="dropdown-item" routerLink="globalupdate/holidayindicator">HOLIDAY_INDICATOR</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">PRODUCT CLASS UPDATE</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item">ADD PRODUCT CLASS/PROTECTION LEVEL COMBINATION</a>
+          <a class="dropdown-item">DELETE PRODUCT CLASS/PROTECTION LEVEL COMBINATION</a>
+          <a class="dropdown-item">CHANGE PRODUCT CLASS'S PROTECTION LEVEL</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">ADD/DELETE ORDER TYPE</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" >TRANS_WAVE_ID</a>
+            <a class="dropdown-item" >DELIVERY_TYPE</a>
+            <a class="dropdown-item" >HOLIDAY_INDICATOR</a>
+          </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contactus" routerLinkActive="active">QUERY</a>
+      </li>
+    </ul>
+  </div>
+</div> -->
+<div class="nav-side-menu">
+  <!-- <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i> -->
+
+  <div class="menu-list">
+
+    <ul id="menu-content" class="menu-content collapse out">
+      <li data-toggle="collapse" data-target="#products" class="collapsed" routerLink="globalupdate" routerLinkActive="active">
+        <a>
+          GLOBAL UPDATE
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <ul class="sub-menu collapse" id="products">
+        <li routerLink="globalupdate/transwave" routerLinkActive="active">
+          <a>TRANS_WAVE_ID</a>
+        </li>
+        <li routerLink="globalupdate/deliverytype" routerLinkActive="active">
+          <a>DELIVERY_TYPE</a>
+        </li>
+        <li routerLink="globalupdate/holidayindicator" routerLinkActive="active">
+          <a>HOLIDAY_INDICATOR</a>
+        </li>
+      </ul>
+      <li data-toggle="collapse" data-target="#service" class="collapsed" routerLink="productclassupdate" routerLinkActive="active">
+        <a>
+          PRODUCT CLASS UPDATE
+          <span class="arrow"></span>
+        </a>
+      </li>
+      <ul class="sub-menu collapse" id="service">
+        <li routerLink="productclassupdate/addproduct" routerLinkActive="active" title="ADD PRODUCT CLASS/PROTECTION LEVEL COMBINATION">
+          <a>ADD PRODUCT CLASS/PROTECTION LEVEL COMBINATION</a>
+        </li>
+        <li routerLink="productclassupdate/deleteproduct" routerLinkActive="active" title="DELETE PRODUCT CLASS/PROTECTION LEVEL COMBINATION">
+          <a>DELETE PRODUCT CLASS/PROTECTION LEVEL COMBINATION</a>
+        </li>
+        <li routerLink="productclassupdate/changeproduct" routerLinkActive="active" title="CHANGE PRODUCT CLASS'S PROTECTION LEVEL">
+          <a>CHANGE PRODUCT CLASS'S PROTECTION LEVEL</a>
+        </li>
+      </ul>
+      <li routerLink="ordertype" routerLinkActive="active">
+        <a>
+          ADD/DELETE ORDER TYPE
+        </a>
+      </li>
+      <li routerLink="query" routerLinkActive="active">
+        <a>
+          QUERY
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
