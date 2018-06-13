@@ -1,3 +1,48 @@
-<p>
-  change-product works!
-</p>
+<div class="container main-content">
+    <div class="col-md-6 offset-md-3">
+      <div class="inner-form">
+        <h3>Change product class's protection level</h3>
+        <form [formGroup]="changeProdForm" class="form-horizontal">
+          <div class="form-group row" [ngClass]="{'has-error': (!pClass.valid && pClass.touched)}">
+            <label for="pClass" class="col-sm-4 control-label">Enter product class</label>
+            <div class="col-sm-6">
+              <select [formControl]="pClass" class="form-control" id="pClass" (change)="selectedClass()">
+                <option [selected]="true">Select a value</option>
+                <option [ngValue] = "item" *ngFor="let item of pClassData">
+                  {{item.class}}
+                </option>
+              </select>
+              <div *ngIf="pClass.hasError('required') && pClass.touched" class="error">You must include a product class.</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="pLevel" class="col-sm-4 control-label">Enter protection level</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="level" [value]="pLevel" [readonly]="true">
+            </div>
+          </div>
+          <div class="form-group row update-button">
+            <div class="col-sm-12">
+              <button type="submit" class="btn btn-default float-left">CANCEL</button>
+              <button [disabled]="!changeProdForm.valid" type="submit" class="btn btn-default float-right" data-toggle="modal" data-target="#myModal">SAVE</button>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <p class="text-center">Are you sure to update?</p>
+                  <div class="buttons text-center">
+                    <button type="button" class="btn btn-default" (click)="onSubmit(changeProdForm.value.pClass);changeProdForm.reset();" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

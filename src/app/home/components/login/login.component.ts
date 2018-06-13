@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
   login(data){
     console.log(data);
     this.router.navigate(['/dashboard']);
-  }
-
+  };
 }
 
 export interface userFormData {

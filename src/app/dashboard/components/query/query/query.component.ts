@@ -8,30 +8,40 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/form
 })
 export class QueryComponent implements OnInit {
 
-  public TransWaveForm:FormGroup;
+  public queryForm:FormGroup;
   public dc:AbstractControl;
   public warehouse:AbstractControl;
   public orderType: AbstractControl;
   public productClass: AbstractControl;
   
   constructor(private fb:FormBuilder) { 
-    this.TransWaveForm = fb.group({
-      'dc': ['', Validators.compose([Validators.required])],
-      'warehouse': ['', Validators.compose([Validators.required])],
-      'orderType': ['', Validators.compose([Validators.required])],
-      'productClass': ['', Validators.compose([Validators.required])]
+    this.queryForm = fb.group({
+      'dc': [''],
+      'warehouse': [''],
+      'orderType': [''],
+      'productClass': ['']
     });
-
-    this.dc = this.TransWaveForm.controls['dc'];
-    this.warehouse = this.TransWaveForm.controls['warehouse'];
-    this.orderType = this.TransWaveForm.controls['orderType'];
-    this.productClass = this.TransWaveForm.controls['productClass'];
+    // , Validators.compose([Validators.required])
+    this.dc = this.queryForm.controls['dc'];
+    this.warehouse = this.queryForm.controls['warehouse'];
+    this.orderType = this.queryForm.controls['orderType'];
+    this.productClass = this.queryForm.controls['productClass'];
   }
 
   ngOnInit() {
-  }
+
+  };
+  
+  checkValidation(){
+    if(this.dc.value.length || this.warehouse.value.length || this.orderType.value.length || this.productClass.value.length){
+      return false;
+    }else {
+      return true;
+    }
+  };
+
   onSubmit(data) {
     console.log(data);
-  }
+  };
 
 }

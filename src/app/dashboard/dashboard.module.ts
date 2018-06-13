@@ -21,6 +21,8 @@ import { ChangeProductComponent } from './components/product-update/change-produ
 import { QueryComponent } from './components/query/query/query.component';
 /* Add delete order type components */
 import { OrderTypeComponent } from './components/order-type/order-type/order-type.component';
+/*Update component */
+import { UpdateComponent } from './components/update/update.component';
 
 @NgModule({
   imports: [
@@ -41,7 +43,8 @@ import { OrderTypeComponent } from './components/order-type/order-type/order-typ
     DeleteProductComponent,
     ChangeProductComponent,
     QueryComponent,
-    OrderTypeComponent
+    OrderTypeComponent,
+    UpdateComponent
   ]
 })
 export class DashboardModule { }

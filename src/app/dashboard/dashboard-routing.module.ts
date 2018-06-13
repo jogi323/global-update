@@ -17,9 +17,18 @@ import { QueryComponent } from './components/query/query/query.component';
 /* Add delete order type components */
 import { OrderTypeComponent } from './components/order-type/order-type/order-type.component';
 
+/*Update component import statement */
+import { UpdateComponent } from './components/update/update.component';
+
 const routes: Routes = [
   {
     path: '',component: DashboardComponent,children: [
+      {
+        path: '',redirectTo:'/dashboard/update', pathMatch: 'full'
+      },
+      {
+        path:'update',component: UpdateComponent
+      },
       /* Global update routing configuration */
       {
         path:'globalupdate',children: [

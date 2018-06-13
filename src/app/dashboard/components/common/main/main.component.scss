@@ -1,8 +1,9 @@
 .nav-side-menu {
   overflow: auto;
-  background-color: #72d6f5 ;
-  position: fixed;
+  background-color: #29a5cc ;
+  position: absolute;
   height: 100%;
+  width: 100%;
   color: #e1ffff;
 }
 .nav-side-menu .toggle-btn {
@@ -44,7 +45,8 @@
   border: none;
   line-height: 28px;
   margin-left: 0px;
-  width: 300px;
+  width: 100%;
+  // max-width: 232px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -83,12 +85,8 @@
   -ms-transition: all 1s ease;
   transition: all 1s ease;
 }
-  .nav-side-menu .menu-list .menu-content {
-    display: block;
-    max-width: 300px;
-    min-width: 300px;
-  }
-body {
-  margin: 0px;
-  padding: 0px;
+.nav-side-menu .menu-list .menu-content {
+  display: block;
+  width: 100%;
+  max-width: 100%;
 }
