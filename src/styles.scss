@@ -14,10 +14,21 @@
   }
 }
 .main-content {
-  padding: 20px 0px;
+  padding:  0px !important;
+  .heading {
+    background: #2b2c31;
+    text-align: center;
+    padding: 0.25rem;
+    margin-bottom: 2rem;
+    h3 {
+      font-size: 16px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
   .inner-form {
     background: #fff;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     h3 {
       text-align: center;
       color: #fff;
@@ -32,9 +43,6 @@
           text-transform: uppercase;
           font-size: 14px;
         }
-      }
-      .update-button {
-        padding: 2%;
       }
     }
   }

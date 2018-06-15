@@ -1,34 +1,38 @@
 <div class="container main-content">
-  <div class="col-md-6 offset-md-3">
+  <div class="heading">
+    <h3>Add/delete order type</h3>
+  </div>
+  <div class="col-md-6 offset-md-3" *ngIf="!showSecondForm">
     <div class="inner-form">
-      <h3>Add/delete order type</h3>
       <form [formGroup]="orderTypeForm" class="form-horizontal">
-        <div class="form-group row" [ngClass]="{'has-error': (!dc.valid && dc.touched)}">
+        <div class="form-group row" [ngClass]="{'has-error': (!dc1.valid && dc1.touched)}">
           <label for="DC" class="col-sm-4 control-label">Enter DC</label>
           <div class="col-sm-6">
-            <input [formControl]="dc" type="text" class="form-control" id="DC" placeholder="Enter DC...">
-            <div *ngIf="dc.hasError('required') && dc.touched" class="error">You must include a DC.</div>
+            <input [formControl]="dc1" type="text" class="form-control" id="DC" placeholder="Enter DC...">
+            <div *ngIf="dc1.hasError('required') && dc1.touched" class="error">You must include a DC.</div>
           </div>
         </div>
-        <div class="form-group row" [ngClass]="{'has-error': (!warehouse.valid && warehouse.touched)}">
-          <label for="warehouse" class="col-sm-4 control-label">Enter Warehouse</label>
+        <div class="form-group row" [ngClass]="{'has-error': (!warehouse1.valid && warehouse1.touched)}">
+          <label for="warehouse1" class="col-sm-4 control-label">Enter Warehouse</label>
           <div class="col-sm-6">
-            <input [formControl]="warehouse" type="text" class="form-control" id="warehouse" placeholder="Enter warehouse...">
-            <div *ngIf="warehouse.hasError('required') && warehouse.touched" class="error">You must include a warehouse.</div>
+            <input [formControl]="warehouse1" type="text" class="form-control" id="warehouse" placeholder="Enter warehouse...">
+            <div *ngIf="warehouse1.hasError('required') && warehouse1.touched" class="error">You must include a warehouse.</div>
           </div>
         </div>
-        <div class="form-group row" [ngClass]="{'has-error': (!order_type.valid && order_type.touched)}">
+        <div class="form-group row" [ngClass]="{'has-error': (!order_type1.valid && order_type1.touched)}">
           <label for="inputPassword3" class="col-sm-4 control-label">Enter order type to add or delete</label>
           <div class="col-sm-6">
-            <input [formControl]="order_type" type="text" class="form-control" id="order_type" placeholder="Enter order type...">
-            <div *ngIf="order_type.hasError('required') && order_type.touched" class="error">You must include a order type.</div>
+            <input [formControl]="order_type1" type="text" class="form-control" id="order_type1" placeholder="Enter order type...">
+            <div *ngIf="order_type1.hasError('required') && order_type1.touched" class="error">You must include a order type.</div>
           </div>
         </div>
-        <div class="form-group row update-button">
-          <div class="col-sm-12 text-center">
-            <button type="submit" class="btn btn-default float-left" (click)="orderTypeForm.reset()" >CANCEL</button>
-            <button [disabled]="!orderTypeForm.valid" type="submit" class="btn btn-default btn-auth" data-toggle="modal" data-target="#myModal" (click)="selectionType('add')">ADD</button>
-            <button [disabled]="!orderTypeForm.valid" type="submit" class="btn btn-default float-right" data-toggle="modal" data-target="#myModal" (click)="selectionType('delete')">DELETE</button>
+        <div class="form-group row ">
+          <div class="col-sm-10 text-center">
+            <button type="submit" class="btn btn-default float-left" (click)="orderTypeForm.reset()">CANCEL</button>
+            <button [disabled]="!orderTypeForm.valid" type="submit" class="btn btn-default btn-auth" data-toggle="modal" data-target="#myModal"
+              (click)="selectionType('add')">ADD</button>
+            <button [disabled]="!orderTypeForm.valid" type="submit" class="btn btn-default float-right" data-toggle="modal" data-target="#myModal"
+              (click)="selectionType('delete')">DELETE</button>
           </div>
         </div>
         <!-- Modal -->
@@ -39,8 +43,8 @@
               <div class="modal-body">
                 <p class="text-center">Are you sure to update?</p>
                 <div class="buttons text-center">
-                    <button type="button" class="btn btn-default" (click)="onSubmit(orderTypeForm.value);orderTypeForm.reset();" data-dismiss="modal" >Yes</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                  <button type="button" class="btn btn-default" (click)="onSubmit(orderTypeForm.value);orderTypeForm.reset();" data-dismiss="modal">Yes</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                 </div>
               </div>
             </div>
@@ -49,4 +53,164 @@
       </form>
     </div>
   </div>
+
+  <div class="update-content" *ngIf="showSecondForm">
+    <form [formGroup]="orderUpdateForm" class="form-horizontal">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label for="DC" class="col-sm-4 control-label">DC</label>
+            <div class="col-sm-6">
+              <input [formControl]="dc" type="text" class="form-control" id="DC" placeholder="Enter DC..." [readonly]="true">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="warehouse" class="col-sm-4 control-label">Warehouse</label>
+            <div class="col-sm-6">
+              <input [formControl]="warehouse" type="text" class="form-control" id="warehouse" placeholder="Enter warehouse..." [readonly]="true">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-4 control-label">Order_Type</label>
+            <div class="col-sm-6">
+              <input [formControl]="order_type" type="text" class="form-control" id="order_type" placeholder="Enter order type..." [readonly]="true">
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!order_desc.valid && order_desc.touched)}">
+            <label for="order_desc" class="col-sm-4 control-label">Order_Type_Desc</label>
+            <div class="col-sm-6">
+              <input [formControl]="order_desc" type="text" name="order_desc" class="form-control" id="order_desc" placeholder="Enter order type decription...">
+              <div *ngIf="order_desc.hasError('required') && order_desc.touched" class="error">You must include order type decription.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!pClass.valid && pClass.touched)}">
+            <label for="pClass" class="col-sm-4 control-label">Product_Class</label>
+            <div class="col-sm-6">
+                <select [formControl]="pClass" class="form-control" id="pClass" (change)="selectedClass()">
+                  <option [selected]="true">Select a value</option>
+                  <option [ngValue]="item" *ngFor="let item of pClassData">
+                    {{item.class}}
+                  </option>
+                </select>
+                <div *ngIf="pClass.hasError('required') && pClass.touched" class="error">You must include a product class.</div>
+              </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!pLevel.valid && pLevel.touched)}">
+            <label for="pLevel" class="col-sm-4 control-label">Protection_Level</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="level" [value]="pLevel" [readonly]="true">
+              </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!transId.valid && transId.touched)}">
+            <label for="transId" class="col-sm-4 control-label">Trans_Wave_ID</label>
+            <div class="col-sm-6">
+              <input [formControl]="transId" type="text" class="form-control" id="transId" placeholder="Enter trans id...">
+              <div *ngIf="transId.hasError('required') && transId.touched" class="error">You must include a trans id.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!dType.valid && dType.touched)}">
+            <label for="dType" class="col-sm-4 control-label">Delivery_Type</label>
+            <div class="col-sm-6">
+              <input [formControl]="dType" type="text" class="form-control" id="dType" placeholder="Enter delivery type...">
+              <div *ngIf="dType.hasError('required') && dType.touched" class="error">You must include a delivery type.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!dockId.valid && dockId.touched)}">
+            <label for="dockId" class="col-sm-4 control-label">Dest_Dock_ID</label>
+            <div class="col-sm-6">
+              <input [formControl]="dockId" type="text" class="form-control" id="dockId" placeholder="Enter dockId...">
+              <div *ngIf="dockId.hasError('required') && dockId.touched" class="error">You must include a dockId.</div>
+            </div>
+          </div>
+          <div class="form-group row ">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-default float-left" (click)="orderUpdateForm.reset();cancel()">CANCEL</button>
+              <button [disabled]="!orderUpdateForm.valid" type="submit" class="btn btn-default float-right" data-toggle="modal" data-target="#myModal1">SAVE</button>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal1" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <p class="text-center">Are you sure to update?</p>
+                  <div class="buttons text-center">
+                    <button type="button" class="btn btn-default" (click)="update(orderUpdateForm.value);orderUpdateForm.reset();" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row" [ngClass]="{'has-error': (!holidayIndicator.valid && holidayIndicator.touched)}">
+            <label for="holidayIndicator" class="col-sm-4 control-label">Holiday Indicator</label>
+            <div class="col-sm-6">
+              <input [formControl]="holidayIndicator" type="text" class="form-control" id="holidayIndicator" placeholder="Enter holiday indicator...">
+              <div *ngIf="holidayIndicator.hasError('required') && holidayIndicator.touched" class="error">You must include a holiday indicator.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!PUSD.valid && PUSD.touched)}">
+            <label for="PUSD" class="col-sm-4 control-label">Pick_Up_Start_Date</label>
+            <div class="col-sm-6">
+              <input [formControl]="PUSD" type="text" class="form-control" id="PUSD" placeholder="Enter pick up start date...">
+              <div *ngIf="PUSD.hasError('required') && PUSD.touched" class="error">You must include a pick up start date.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!PUST.valid && PUST.touched)}">
+            <label for="PUST" class="col-sm-4 control-label">Pick_Up_Start_Time</label>
+            <div class="col-sm-6">
+              <input [formControl]="PUST" type="text" class="form-control" id="PUST" placeholder="Enter pick up start time...">
+              <div *ngIf="PUST.hasError('required') && PUST.touched" class="error">You must include a pick up start time.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!PUED.valid && PUED.touched)}">
+            <label for="PUED" class="col-sm-4 control-label">Pick_Up_End_Date</label>
+            <div class="col-sm-6">
+              <input [formControl]="PUED" type="text" name="PUED" class="form-control" id="PUED" placeholder="Enter order pick up end date...">
+              <div *ngIf="PUED.hasError('required') && PUED.touched" class="error">You must include a pick up end date.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!PUET.valid && PUET.touched)}">
+            <label for="PUET" class="col-sm-4 control-label">Product_Class</label>
+            <div class="col-sm-6">
+              <input [formControl]="PUET" type="text" class="form-control" id="PUET" placeholder="Enter pick up end time...">
+              <div *ngIf="PUET.hasError('required') && PUET.touched" class="error">You must include a pick up end time.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!DSD.valid && DSD.touched)}">
+            <label for="DSD" class="col-sm-4 control-label">Delivery_Start_Date</label>
+            <div class="col-sm-6">
+              <input [formControl]="DSD" type="text" class="form-control" id="DSD" placeholder="Enter delivery start date...">
+              <div *ngIf="DSD.hasError('required') && DSD.touched" class="error">You must include a delivery start date.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!DST.valid && DST.touched)}">
+            <label for="DST" class="col-sm-4 control-label">Delivery_Start_Time</label>
+            <div class="col-sm-6">
+              <input [formControl]="DST" type="text" class="form-control" id="DST" placeholder="Enter delivery start time...">
+              <div *ngIf="DST.hasError('required') && DST.touched" class="error">You must include a delivery start time.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!DED.valid && DED.touched)}">
+            <label for="DED" class="col-sm-4 control-label">Delivery_End_Date</label>
+            <div class="col-sm-6">
+              <input [formControl]="DED" type="text" class="form-control" id="DED" placeholder="Enter delivery end date...">
+              <div *ngIf="DED.hasError('required') && DED.touched" class="error">You must include a delivery end date.</div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': (!order_type1.valid && order_type1.touched)}">
+            <label for="DET" class="col-sm-4 control-label">Delivery_End_Time</label>
+            <div class="col-sm-6">
+              <input [formControl]="DET" type="text" class="form-control" id="DET" placeholder="Enter delivery end time...">
+              <div *ngIf="DET.hasError('required') && DET.touched" class="error">You must include a delivery end time.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
 </div>

@@ -1,5 +1,11 @@
 .navbar {
     background: #72d6f5 !important;
+    padding: 0px 10px;
+    a {
+        span {
+            color: black;
+        }
+    }
     .navbar-brand {
         color: #fff;
     }

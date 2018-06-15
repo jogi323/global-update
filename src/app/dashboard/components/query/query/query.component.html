@@ -1,48 +1,99 @@
 <div class="container main-content">
-    <div class="col-md-6 offset-md-3">
-      <div class="inner-form">
-        <h3>Query</h3>
-        <form [formGroup]="queryForm" class="form-horizontal">
-          <p class="note">*Note: Please fill any one of the below.</p>
-          <div class="form-group row">
-              <!-- [ngClass]="{'has-error': (!dc.valid && dc.touched)}" -->
-            <label for="DC" class="col-sm-4 control-label">ENTER DC</label>
-            <div class="col-sm-6">
-              <input [formControl]="dc" type="text" class="form-control" id="DC" placeholder="Enter DC...">
-              <!-- <div *ngIf="dc.hasError('required') && dc.touched" class="error">You must include a DC.</div> -->
-            </div>
-          </div>
-          <div class="form-group row">
-              <!-- [ngClass]="{'has-error': (!warehouse.valid && warehouse.touched)}" -->
-            <label for="warehouse" class="col-sm-4 control-label">ENTER WAREHOUSE</label>
-            <div class="col-sm-6">
-              <input [formControl]="warehouse" type="text" class="form-control" id="warehouse" placeholder="Enter warehouse...">
-              <!-- <div *ngIf="warehouse.hasError('required') && warehouse.touched" class="error">You must include a warehouse.</div> -->
-            </div>
-          </div>
-          <div class="form-group row">
-              <!-- [ngClass]="{'has-error': (!orderType.valid && orderType.touched)}" -->
-            <label for="inputPassword3" class="col-sm-4 control-label">ENTER ORDER TYPE</label>
-            <div class="col-sm-6">
-                <input [formControl]="orderType" type="text" class="form-control" id="orderType" placeholder="Enter order type...">
-              <!-- <div *ngIf="orderType.hasError('required') && orderType.touched" class="error">You must include a order type.</div> -->
-            </div>
-          </div>
-          <div class="form-group row">
-              <!-- [ngClass]="{'has-error': (!productClass.valid && productClass.touched)}" -->
-              <label for="inputPassword3" class="col-sm-4 control-label">ENTER PRODUCT CLASS</label>
-              <div class="col-sm-6">
-                  <input [formControl]="productClass" type="text" class="form-control" id="productClass" placeholder="Enter order type...">
-                <!-- <div *ngIf="productClass.hasError('required') && productClass.touched" class="error">You must include a order type.</div> -->
-              </div>
-            </div>
-          <div class="form-group row update-button">
-            <div class="col-sm-12">
-              <button [disabled]="checkValidation()" type="submit" class="btn btn-default float-left" >SELECT</button>
-              <button class="btn btn-default float-right" type="submit" (click)="queryForm.reset()">CANCEL</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+  <div class="heading">
+    <h3>Query</h3>
   </div>
+  <div class="col-md-6 offset-md-3">
+    <!-- <div class="inner-form"> -->
+      <form [formGroup]="queryForm" class="form-horizontal">
+        <p class="note">*Note: Please fill any one of the below.</p>
+        <div class="form-group row">
+          <!-- [ngClass]="{'has-error': (!dc.valid && dc.touched)}" -->
+          <label for="DC" class="col-sm-4 control-label">ENTER DC</label>
+          <div class="col-sm-6">
+            <input [formControl]="dc" type="text" class="form-control" id="DC" placeholder="Enter DC...">
+            <!-- <div *ngIf="dc.hasError('required') && dc.touched" class="error">You must include a DC.</div> -->
+          </div>
+        </div>
+        <div class="form-group row">
+          <!-- [ngClass]="{'has-error': (!warehouse.valid && warehouse.touched)}" -->
+          <label for="warehouse" class="col-sm-4 control-label">ENTER WAREHOUSE</label>
+          <div class="col-sm-6">
+            <input [formControl]="warehouse" type="text" class="form-control" id="warehouse" placeholder="Enter warehouse...">
+            <!-- <div *ngIf="warehouse.hasError('required') && warehouse.touched" class="error">You must include a warehouse.</div> -->
+          </div>
+        </div>
+        <div class="form-group row">
+          <!-- [ngClass]="{'has-error': (!orderType.valid && orderType.touched)}" -->
+          <label for="inputPassword3" class="col-sm-4 control-label">ENTER ORDER TYPE</label>
+          <div class="col-sm-6">
+            <input [formControl]="orderType" type="text" class="form-control" id="orderType" placeholder="Enter order type...">
+            <!-- <div *ngIf="orderType.hasError('required') && orderType.touched" class="error">You must include a order type.</div> -->
+          </div>
+        </div>
+        <div class="form-group row">
+          <!-- [ngClass]="{'has-error': (!productClass.valid && productClass.touched)}" -->
+          <label for="inputPassword3" class="col-sm-4 control-label">ENTER PRODUCT CLASS</label>
+          <div class="col-sm-6">
+            <input [formControl]="productClass" type="text" class="form-control" id="productClass" placeholder="Enter order type...">
+            <!-- <div *ngIf="productClass.hasError('required') && productClass.touched" class="error">You must include a order type.</div> -->
+          </div>
+        </div>
+        <div class="form-group row ">
+          <div class="col-sm-10">
+            <button [disabled]="checkValidation()" type="submit" class="btn btn-default float-left">SELECT</button>
+            <button class="btn btn-default float-right" type="submit" (click)="queryForm.reset()">CANCEL</button>
+          </div>
+        </div>
+      </form>
+    <!-- </div> -->
+  </div>
+</div>
+<div class="main-table">
+  <h5 class="title">Data for record entered on main screen</h5>
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>DC</th>
+        <th>Warehouse</th>
+        <th>Order Type</th>
+        <th>Order Type Desc</th>
+        <th>Product Class</th>
+        <th>Protection Level</th>
+        <th>Trans Wave ID</th>
+        <th>Delivery Type</th>
+        <th>Dest Dock ID</th>
+        <th>Holiday Indicator</th>
+        <th>Pick Up Start Date</th>
+        <th>Pick Up Start Time</th>
+        <th>Pick Up End Date</th>
+        <th>Pick Up End Time</th>
+        <th>Delivery Start Date</th>
+        <th>Delivery Start Time</th>
+        <th>Delivery End Date</th>
+        <th>Delivery End Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>20</td>
+        <td>11</td>
+        <td>PERS</td>
+        <td>Regular Combined Orders</td>
+        <td>O-Fresh</td>
+        <td>33-40</td>
+        <td>1</td>
+        <td>1</td>
+        <td>P</td>
+        <td>N</td>
+        <td>0</td>
+        <td>17:00</td>
+        <td>1</td>
+        <td>16:59</td>
+        <td>0</td>
+        <td>17:00</td>
+        <td>1</td>
+        <td>16:59</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

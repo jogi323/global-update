@@ -1,24 +1,32 @@
 <div class="container main-content">
+    <div class="heading">
+        <h3>Delete combination</h3>
+      </div>
     <div class="col-md-6 offset-md-3">
       <div class="inner-form">
-        <h3>Delete combination</h3>
-        <form [formGroup]="deleteProductForm" class="form-horizontal">
-          <div class="form-group row" [ngClass]="{'has-error': (!pClass.valid && pClass.touched)}">
+        <form #deleteProductForm="ngForm" class="form-horizontal">
+            <!-- [formGroup]="deleteProductForm" -->
+          <div class="form-group row">
+              <!-- [ngClass]="{'has-error': (!pClass.valid && pClass.touched)}" -->
             <label for="productClass" class="col-sm-4 control-label">Enter product class</label>
             <div class="col-sm-6">
-              <input [formControl]="pClass" type="text" class="form-control" id="productClass" placeholder="Enter product class...">
-              <div *ngIf="pClass.hasError('required') && pClass.touched" class="error">You must include a product class.</div>
+              <input  type="text" class="form-control" name="productClass" [(ngModel)]="productForm.pClass" placeholder="Enter product class...">
+              <!-- [formControl]="pClass" -->
+              <!-- <div *ngIf="pClass.hasError('required') && pClass.touched" class="error">You must include a product class.</div> -->
             </div>
           </div>
-          <div class="form-group row" [ngClass]="{'has-error': (!pLevel.valid && pLevel.touched)}">
+          <div class="form-group row">
+              <!-- [ngClass]="{'has-error': (!pLevel.valid && pLevel.touched)}" -->
             <label for="protectionLevel" class="col-sm-4 control-label">Enter protection level</label>
             <div class="col-sm-6">
-              <input [formControl]="pLevel" type="text" class="form-control" id="protectionLevel" placeholder="Enter protection level...">
-              <div *ngIf="pLevel.hasError('required') && pLevel.touched" class="error">You must include a protection level.</div>
+              <input  type="text" class="form-control" name="protectionLevel" [(ngModel)]="productForm.pLevel" placeholder="Enter protection level..." [readonly]="true">
+              <!-- [formControl]="pLevel" -->
+              <!-- <div *ngIf="pLevel.hasError('required') && pLevel.touched" class="error">You must include a protection level.</div> -->
             </div>
+            {{dele}}
           </div>
-          <div class="form-group row update-button">
-            <div class="col-sm-12">
+          <div class="form-group row ">
+            <div class="col-sm-10">
               <button type="submit" class="btn btn-default float-left" (click)="deleteProductForm.reset();">CANCEL</button>
               <button [disabled]="!deleteProductForm.valid" type="submit" class="btn btn-default float-right" data-toggle="modal" data-target="#myModal">DELETE</button>
             </div>
@@ -31,7 +39,7 @@
                 <div class="modal-body">
                   <p class="text-center">Are you sure to update?</p>
                   <div class="buttons text-center">
-                      <button type="button" class="btn btn-default" (click)="onSubmit(deleteProductForm.value);deleteProductForm.reset();" data-dismiss="modal" >Yes</button>
+                      <button type="button" class="btn btn-default" (click)="onSubmit(deleteProductForm.value);" data-dismiss="modal" >Yes</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                   </div>
                 </div>

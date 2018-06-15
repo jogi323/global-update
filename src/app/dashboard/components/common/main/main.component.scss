@@ -47,9 +47,12 @@
   margin-left: 0px;
   width: 100%;
   // max-width: 232px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  // text-overflow: ellipsis;
+  // overflow: hidden;
+  // white-space: nowrap;
+  .break {
+    padding-left: 40px;
+  }
 }
 
 .nav-side-menu ul .sub-menu li:before,

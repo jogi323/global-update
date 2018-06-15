@@ -12,7 +12,9 @@ export class UpdateComponent implements OnInit {
   public dc:AbstractControl;
   public warehouse:AbstractControl;
   public orderType: AbstractControl;
-  
+  public dcList: any[] = [];
+  public warehouseList: any[] = [];
+
   constructor(private fb:FormBuilder) { 
     this.updateForm = fb.group({
       'dc': ['', Validators.compose([Validators.required])],
@@ -23,6 +25,8 @@ export class UpdateComponent implements OnInit {
     this.dc = this.updateForm.controls['dc'];
     this.warehouse = this.updateForm.controls['warehouse'];
     this.orderType = this.updateForm.controls['orderType'];
+    this.dcList = [1,2,3,'H','N'];
+    this.warehouseList = ['WH1','WH2','WH3'];
   }
 
   ngOnInit() {

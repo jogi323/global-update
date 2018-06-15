@@ -1,3 +1,15 @@
 .note {
     padding-left: 3.5%;
 }
+.main-table {
+    font-size: 0.8rem;
+    // overflow-x: scroll;
+    margin-bottom: 20px;
+    .title {
+        text-transform: uppercase;
+        text-align: center;
+    }
+    // table {
+    //     overflow-x: scroll;
+    // }
+}
