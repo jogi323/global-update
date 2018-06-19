@@ -1,4 +1,4 @@
-<div class="container main-content">
+<div class="main-content">
   <div class="heading">
     <h3>Add/delete order type</h3>
   </div>
@@ -8,14 +8,24 @@
         <div class="form-group row" [ngClass]="{'has-error': (!dc1.valid && dc1.touched)}">
           <label for="DC" class="col-sm-4 control-label">Enter DC</label>
           <div class="col-sm-6">
-            <input [formControl]="dc1" type="text" class="form-control" id="DC" placeholder="Enter DC...">
+            <select [formControl]="dc1" class="form-control" id="dc1">
+              <option>Select a value</option>
+              <option *ngFor="let item of dcList">
+                {{item.dc}}
+              </option>
+            </select>
             <div *ngIf="dc1.hasError('required') && dc1.touched" class="error">You must include a DC.</div>
           </div>
         </div>
         <div class="form-group row" [ngClass]="{'has-error': (!warehouse1.valid && warehouse1.touched)}">
           <label for="warehouse1" class="col-sm-4 control-label">Enter Warehouse</label>
           <div class="col-sm-6">
-            <input [formControl]="warehouse1" type="text" class="form-control" id="warehouse" placeholder="Enter warehouse...">
+            <select [formControl]="warehouse1" class="form-control" id="warehouse1">
+              <option>Select a value</option>
+              <option *ngFor="let item of warehouseList">
+                {{item.wh}}
+              </option>
+            </select>
             <div *ngIf="warehouse1.hasError('required') && warehouse1.touched" class="error">You must include a warehouse.</div>
           </div>
         </div>
@@ -27,11 +37,11 @@
           </div>
         </div>
         <div class="form-group row ">
-          <div class="col-sm-10 text-center">
-            <button type="submit" class="btn btn-default float-left" (click)="orderTypeForm.reset()">CANCEL</button>
-            <button [disabled]="!orderTypeForm.valid" type="submit" class="btn btn-default btn-auth" data-toggle="modal" data-target="#myModal"
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-outline-dark" (click)="orderTypeForm.reset()">CANCEL</button>
+            <button [disabled]="!orderTypeForm.valid" type="submit" class="btn btn-outline-dark btn-auth" data-toggle="modal" data-target="#myModal"
               (click)="selectionType('add')">ADD</button>
-            <button [disabled]="!orderTypeForm.valid" type="submit" class="btn btn-default float-right" data-toggle="modal" data-target="#myModal"
+            <button [disabled]="!orderTypeForm.valid" type="submit" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal"
               (click)="selectionType('delete')">DELETE</button>
           </div>
         </div>
@@ -43,8 +53,8 @@
               <div class="modal-body">
                 <p class="text-center">Are you sure to update?</p>
                 <div class="buttons text-center">
-                  <button type="button" class="btn btn-default" (click)="onSubmit(orderTypeForm.value);orderTypeForm.reset();" data-dismiss="modal">Yes</button>
-                  <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                  <button type="button" class="btn btn-outline-dark" (click)="onSubmit(orderTypeForm.value);orderTypeForm.reset();" data-dismiss="modal">Yes</button>
+                  <button type="button" class="btn btn-outline-dark" data-dismiss="modal">No</button>
                 </div>
               </div>
             </div>
@@ -124,8 +134,8 @@
           </div>
           <div class="form-group row ">
             <div class="col-sm-10">
-              <button type="submit" class="btn btn-default float-left" (click)="orderUpdateForm.reset();cancel()">CANCEL</button>
-              <button [disabled]="!orderUpdateForm.valid" type="submit" class="btn btn-default float-right" data-toggle="modal" data-target="#myModal1">SAVE</button>
+              <button type="submit" class="btn btn-outline-dark" (click)="orderUpdateForm.reset();cancel()">CANCEL</button>
+              <button [disabled]="!orderUpdateForm.valid" type="submit" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal1">SAVE</button>
             </div>
           </div>
           <!-- Modal -->
@@ -136,8 +146,8 @@
                 <div class="modal-body">
                   <p class="text-center">Are you sure to update?</p>
                   <div class="buttons text-center">
-                    <button type="button" class="btn btn-default" (click)="update(orderUpdateForm.value);orderUpdateForm.reset();" data-dismiss="modal">Yes</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-outline-dark" (click)="update(orderUpdateForm.value);orderUpdateForm.reset();" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">No</button>
                   </div>
                 </div>
               </div>

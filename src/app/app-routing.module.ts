@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '', loadChildren:'app/home/home.module#HomeModule'
+    path: '', loadChildren: 'app/home/home.module#HomeModule'
   },
   {
-    path: 'dashboard', loadChildren:'./dashboard/dashboard.module#DashboardModule'
+    path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'
   }
 ];
 

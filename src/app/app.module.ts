@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { ModalDialogModule } from 'ngx-modal-dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
+import { ApiService } from './shared/services/api.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
-    ModalDialogModule.forRoot()
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

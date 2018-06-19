@@ -1,7 +1,11 @@
-.side-menu {
-    height: 88vh;
-    padding-left: 0px !important;
-}
-.main-content {
-    padding: 0px;
+.main-section {
+    display: flex;
+    .side-menu {
+        flex:1;
+        min-height: calc(100vh - 75px);
+        padding-left: 0px;
+    }
+    .main-content {
+        flex: 1;
+    }
 }

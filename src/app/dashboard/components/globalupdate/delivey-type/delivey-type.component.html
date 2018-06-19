@@ -1,4 +1,4 @@
-<div class="container main-content">
+<div class="main-content">
   <div class="heading">
     <h3>delivery_type</h3>
   </div>
@@ -9,14 +9,24 @@
         <div class="form-group row" [ngClass]="{'has-error': (!dc.valid && dc.touched)}">
           <label for="DC" class="col-sm-4 control-label">Enter DC</label>
           <div class="col-sm-6">
-            <input [formControl]="dc" type="text" class="form-control" id="DC" placeholder="Enter DC...">
+            <select [formControl]="dc" class="form-control" id="dc">
+              <option>Select a value</option>
+              <option *ngFor="let item of dcList">
+                {{item.dc}}
+              </option>
+            </select>
             <div *ngIf="dc.hasError('required') && dc.touched" class="error">You must include a DC.</div>
           </div>
         </div>
         <div class="form-group row" [ngClass]="{'has-error': (!warehouse.valid && warehouse.touched)}">
           <label for="warehouse" class="col-sm-4 control-label">Enter Warehouse</label>
           <div class="col-sm-6">
-            <input [formControl]="warehouse" type="text" class="form-control" id="warehouse" placeholder="Enter warehouse...">
+            <select [formControl]="warehouse" class="form-control" id="warehouse">
+              <option>Select a value</option>
+              <option *ngFor="let item of warehouseList">
+                {{item.wh}}
+              </option>
+            </select>
             <div *ngIf="warehouse.hasError('required') && warehouse.touched" class="error">You must include a warehouse.</div>
           </div>
         </div>
@@ -33,8 +43,8 @@
           </div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-10 text-center buttons">
-            <button [disabled]="!deliveryForm.valid" type="submit" class="btn btn-default btn-auth" data-toggle="modal" data-target="#myModal">Update</button>
+          <div class="col-sm-10">
+            <button [disabled]="!deliveryForm.valid" type="submit" class="btn btn-outline-dark btn-auth" data-toggle="modal" data-target="#myModal">Update</button>
           </div>
         </div>
         <!-- Modal -->
@@ -45,8 +55,8 @@
               <div class="modal-body">
                 <p class="text-center">Are you sure to update?</p>
                 <div class="buttons text-center">
-                  <button type="button" class="btn btn-default" (click)="onSubmit(deliveryForm.value);deliveryForm.reset();" data-dismiss="modal">Yes</button>
-                  <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                  <button type="button" class="btn btn-outline-dark" (click)="onSubmit(deliveryForm.value);deliveryForm.reset();" data-dismiss="modal">Yes</button>
+                  <button type="button" class="btn btn-outline-dark" data-dismiss="modal">No</button>
                 </div>
               </div>
             </div>

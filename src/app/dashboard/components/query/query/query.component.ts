@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import { ApiService } from '../../../../shared/services/api.service';
 
 @Component({
   selector: 'app-query',
@@ -13,8 +14,10 @@ export class QueryComponent implements OnInit {
   public warehouse:AbstractControl;
   public orderType: AbstractControl;
   public productClass: AbstractControl;
+  public dcList: any[] = [];
+  public warehouseList: any[] = [];
   
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder, private api: ApiService) { 
     this.queryForm = fb.group({
       'dc': [''],
       'warehouse': [''],
@@ -26,10 +29,12 @@ export class QueryComponent implements OnInit {
     this.warehouse = this.queryForm.controls['warehouse'];
     this.orderType = this.queryForm.controls['orderType'];
     this.productClass = this.queryForm.controls['productClass'];
+    this.dcList = this.api.dcList;
+    this.warehouseList = this.api.whList;
   }
 
   ngOnInit() {
-
+    
   };
   
   checkValidation(){
@@ -44,4 +49,4 @@ export class QueryComponent implements OnInit {
     console.log(data);
   };
 
-}
+  }

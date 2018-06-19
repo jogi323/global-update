@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import { ApiService } from '../../../../shared/services/api.service';
 
 @Component({
   selector: 'app-order-type',
@@ -36,9 +37,12 @@ export class OrderTypeComponent implements OnInit {
   public DSD: AbstractControl;
   public DST: AbstractControl;
   public DED: AbstractControl;
-  public DET: AbstractControl
+  public DET: AbstractControl;
+
+  public dcList: any[] = [];
+  public warehouseList: any[] = [];
   
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder, private api: ApiService) { 
     this.orderTypeForm = fb.group({
       'dc1': ['', Validators.compose([Validators.required])],
       'warehouse1': ['', Validators.compose([Validators.required])],
@@ -99,10 +103,13 @@ export class OrderTypeComponent implements OnInit {
       {class:'O-Prodce',level:'33-40'},
       {class:'O-Seafd',level:'33-40'}
     ];
+    this.dcList = this.api.dcList;
+    this.warehouseList = this.api.whList;
   }
 
   ngOnInit() {
-  }
+    
+  };
 
   selectedClass(){
     this.pLevel = this.pClass.value.level;
@@ -114,9 +121,9 @@ export class OrderTypeComponent implements OnInit {
 
   onSubmit() {
     if(this.type === 'add'){
-      this.dc.value = this.dc1.value;
-      this.warehouse.value = this.warehouse1.value;
-      this.order_type.value = this.order_type1.value;
+      this.orderUpdateForm.controls['dc'].setValue(this.orderTypeForm.controls['dc1'].value);
+      this.orderUpdateForm.controls['warehouse'].setValue(this.orderTypeForm.controls['warehouse1'].value);
+      this.orderUpdateForm.controls['order_type'].setValue(this.orderTypeForm.controls['order_type1'].value);
       this.showSecondForm = true;
     }
   };
@@ -124,8 +131,10 @@ export class OrderTypeComponent implements OnInit {
   cancel(){
     this.showSecondForm = false;
   };
+
   update(data) {
     console.log(data);
     this.pLevel = '';
-  }
+  };
+
 }

@@ -1,4 +1,4 @@
-<div class="container main-content">
+<div class="main-content">
     <div class="heading">
         <h3>Delete combination</h3>
       </div>
@@ -27,8 +27,8 @@
           </div>
           <div class="form-group row ">
             <div class="col-sm-10">
-              <button type="submit" class="btn btn-default float-left" (click)="deleteProductForm.reset();">CANCEL</button>
-              <button [disabled]="!deleteProductForm.valid" type="submit" class="btn btn-default float-right" data-toggle="modal" data-target="#myModal">DELETE</button>
+              <button type="submit" class="btn btn-outline-dark" (click)="deleteProductForm.reset();">CANCEL</button>
+              <button [disabled]="!deleteProductForm.valid" type="submit" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal">DELETE</button>
             </div>
           </div>
           <!-- Modal -->
@@ -39,8 +39,8 @@
                 <div class="modal-body">
                   <p class="text-center">Are you sure to update?</p>
                   <div class="buttons text-center">
-                      <button type="button" class="btn btn-default" (click)="onSubmit(deleteProductForm.value);" data-dismiss="modal" >Yes</button>
-                      <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                      <button type="button" class="btn btn-outline-dark" (click)="onSubmit(deleteProductForm.value);" data-dismiss="modal" >Yes</button>
+                      <button type="button" class="btn btn-outline-dark" data-dismiss="modal">No</button>
                   </div>
                 </div>
               </div>

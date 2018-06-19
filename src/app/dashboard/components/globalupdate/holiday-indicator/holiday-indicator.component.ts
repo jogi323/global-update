@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import { ApiService } from '../../../../shared/services/api.service';
 
 @Component({
   selector: 'app-holiday-indicator',
@@ -13,7 +14,10 @@ export class HolidayIndicatorComponent implements OnInit {
   public warehouse:AbstractControl;
   public holiday_indicator: AbstractControl;
   private validHolidayId: any[] = [];
-  constructor(private fb:FormBuilder) { 
+  public dcList: any[] = [];
+  public warehouseList: any[] = [];
+  
+  constructor(private fb:FormBuilder, private api: ApiService) { 
     this.holidayForm = fb.group({
       'dc': ['', Validators.compose([Validators.required])],
       'warehouse': ['', Validators.compose([Validators.required])],
@@ -24,9 +28,12 @@ export class HolidayIndicatorComponent implements OnInit {
     this.warehouse = this.holidayForm.controls['warehouse'];
     this.holiday_indicator = this.holidayForm.controls['holiday_indicator'];
     this.validHolidayId = ['H','N'];
+    this.dcList = this.api.dcList;
+    this.warehouseList = this.api.whList;
   }
 
   ngOnInit() {
+    
   }
   onSubmit(data) {
     console.log(data);
