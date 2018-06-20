@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import {
+  FormGroup,
+  AbstractControl,
+  FormBuilder,
+  Validators
+} from '@angular/forms';
 import { ApiService } from '../../../../shared/services/api.service';
 
 @Component({
@@ -8,21 +13,20 @@ import { ApiService } from '../../../../shared/services/api.service';
   styleUrls: ['./query.component.scss']
 })
 export class QueryComponent implements OnInit {
-
-  public queryForm:FormGroup;
-  public dc:AbstractControl;
-  public warehouse:AbstractControl;
+  public queryForm: FormGroup;
+  public dc: AbstractControl;
+  public warehouse: AbstractControl;
   public orderType: AbstractControl;
   public productClass: AbstractControl;
   public dcList: any[] = [];
   public warehouseList: any[] = [];
-  
-  constructor(private fb:FormBuilder, private api: ApiService) { 
+
+  constructor(private fb: FormBuilder, private api: ApiService) {
     this.queryForm = fb.group({
-      'dc': [''],
-      'warehouse': [''],
-      'orderType': [''],
-      'productClass': ['']
+      dc: [''],
+      warehouse: [''],
+      orderType: [''],
+      productClass: ['']
     });
     // , Validators.compose([Validators.required])
     this.dc = this.queryForm.controls['dc'];
@@ -33,20 +37,22 @@ export class QueryComponent implements OnInit {
     this.warehouseList = this.api.whList;
   }
 
-  ngOnInit() {
-    
-  };
-  
-  checkValidation(){
-    if(this.dc.value.length || this.warehouse.value.length || this.orderType.value.length || this.productClass.value.length){
+  ngOnInit() {}
+
+  checkValidation() {
+    if (
+      this.dc.value.length ||
+      this.warehouse.value.length ||
+      this.orderType.value.length ||
+      this.productClass.value.length
+    ) {
       return false;
-    }else {
+    } else {
       return true;
     }
-  };
+  }
 
   onSubmit(data) {
     console.log(data);
-  };
-
   }
+}

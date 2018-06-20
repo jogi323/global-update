@@ -7,27 +7,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
-  private fpData:fpFormData;
-
-  constructor(private router:Router) { 
+  private fpData: FpFormData;
+  constructor (private router: Router) {
     this.fpData = {
       email: '',
       password: '',
       cpassword: ''
-    }
+    };
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  resetPassword(data){
+  resetPassword(data) {
     console.log(data);
     this.router.navigate(['/']);
   }
-
 }
- export interface fpFormData {
-   email: string,
-   password: string,
-   cpassword: string
- }
+export interface FpFormData {
+  email: string;
+  password: string;
+  cpassword: string;
+}

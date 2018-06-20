@@ -7,25 +7,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  private user: userFormData;
-
-  constructor(private router:Router) { 
+  private user: UserFormData;
+  constructor (private router: Router) {
     this.user = {
       email: '',
       password: ''
-    }
+    };
   }
 
   ngOnInit() {
 
   }
-  login(data){
+  login(data) {
     console.log(data);
     this.router.navigate(['/dashboard']);
-  };
+  }
 }
 
-export interface userFormData {
-  email: string,
-  password: string
+export interface UserFormData {
+  email: string;
+  password: string;
 }
