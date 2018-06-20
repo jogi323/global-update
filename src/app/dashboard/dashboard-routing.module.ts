@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from "./dashboard.component";
+import { DashboardComponent } from './dashboard.component';
 /* Global update components */
 import { TransWaveComponent } from './components/globalupdate/trans-wave/trans-wave.component';
 import { DeliveyTypeComponent } from './components/globalupdate/delivey-type/delivey-type.component';
@@ -22,54 +22,54 @@ import { UpdateComponent } from './components/update/update.component';
 
 const routes: Routes = [
   {
-    path: '',component: DashboardComponent,children: [
+    path: '', component: DashboardComponent, children: [
       {
-        path: '',redirectTo:'/dashboard/update', pathMatch: 'full'
+        path: '', redirectTo: '/dashboard/update', pathMatch: 'full'
       },
       {
-        path:'update',component: UpdateComponent
+        path: 'update', component: UpdateComponent
       },
       /* Global update routing configuration */
       {
-        path:'globalupdate',children: [
+        path: 'globalupdate', children: [
           {
-            path: '',redirectTo:'/dashboard/globalupdate/transwave', pathMatch: 'full'
+            path: '', redirectTo: '/dashboard/globalupdate/transwave', pathMatch: 'full'
           },
           {
-            path: 'transwave',component: TransWaveComponent
+            path: 'transwave', component: TransWaveComponent
           },
           {
-            path: 'deliverytype',component: DeliveyTypeComponent
+            path: 'deliverytype', component: DeliveyTypeComponent
           },
           {
-            path: 'holidayindicator',component: HolidayIndicatorComponent
+            path: 'holidayindicator', component: HolidayIndicatorComponent
           }
         ]
       },
       /* Product class update routing configuration */
       {
-        path:'productclassupdate',children: [
+        path: 'productclassupdate', children: [
           {
-            path: '',redirectTo:'/dashboard/productclassupdate/addproduct', pathMatch: 'full'
+            path: '', redirectTo: '/dashboard/productclassupdate/addproduct', pathMatch: 'full'
           },
           {
-            path: 'addproduct',component: AddProductComponent
+            path: 'addproduct', component: AddProductComponent
           },
           {
-            path: 'deleteproduct',component: DeleteProductComponent
+            path: 'deleteproduct', component: DeleteProductComponent
           },
           {
-            path: 'changeproduct',component: ChangeProductComponent
+            path: 'changeproduct', component: ChangeProductComponent
           }
         ]
       },
       /* Add delete order type routing configuration */
       {
-        path:'ordertype',component: OrderTypeComponent
+        path: 'ordertype', component: OrderTypeComponent
       },
       /* Product class update routing configuration */
       {
-        path:'query',component: QueryComponent
+        path: 'query', component: QueryComponent
       }
     ]
   }

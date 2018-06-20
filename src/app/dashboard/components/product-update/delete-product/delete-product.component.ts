@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import {
+  FormGroup,
+  AbstractControl,
+  FormBuilder,
+  Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'app-delete-product',
@@ -7,25 +12,21 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/form
   styleUrls: ['./delete-product.component.scss']
 })
 export class DeleteProductComponent implements OnInit {
-
-  public productForm:any;
+  public productForm: any;
   // public pClass:AbstractControl;
   // public pLevel:AbstractControl;
   // public selectedProduct: object;
-
-  constructor(private fb:FormBuilder) { 
+  constructor (private fb: FormBuilder) {
     // this.deleteProductForm = fb.group({
     //   'pClass': ['', Validators.compose([Validators.required])],
     //   'pLevel': ['', Validators.compose([Validators.required])]
     // });
-
     // this.pClass = this.deleteProductForm.controls['pClass'];
     // this.pLevel = this.deleteProductForm.controls['pLevel'];
     this.productForm = {
-      pClass:'',
-      pLevel:''
-    }
-    
+      pClass: '',
+      pLevel: ''
+    };
   }
 
   ngOnInit() {
@@ -34,10 +35,8 @@ export class DeleteProductComponent implements OnInit {
     // };
     this.productForm.pClass = 'O-Diary';
     this.productForm.pLevel = '33-40';
-    
   }
   onSubmit(data) {
     console.log(data);
   }
-
 }
