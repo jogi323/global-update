@@ -11,13 +11,14 @@ export class ApiService {
     this.getDcData();
     this.getWhList();
   }
-
+  //To get DC data
   getDcData() {
     return this.http.get('/assets/json/dcList.json').subscribe((res) => {
       this.dcList = res;
     });
   }
 
+  //To get warehouse data
   getWhList() {
     return this.http.get('/assets/json/whList.json').subscribe((res) => {
       this.whList = res;
